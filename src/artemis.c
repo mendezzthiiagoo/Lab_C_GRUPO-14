@@ -20,3 +20,21 @@ int verificarReingreso(double angulo) {
         return 0;
     }
 }
+void controlarDescenso(double velocidad) {
+    if (velocidad > 0 && velocidad <= 10.0) {
+        printf("Descenso controlado.\n");
+    }
+    else {
+        printf("PELIGRO: Velocidad de descenso no segura.\n");
+    }
+}  
+
+void verificarAmerizaje(double velocidad, double altura) {
+    if (altura <= 0 && velocidad >= 0 && velocidad <= 10.0) {
+        printf("Amerizaje exitoso.\n");
+        printf("Mision Artemis completada.\n");
+    }
+    else {
+        printf("Amerizaje no confirmado.\n");
+    }
+}

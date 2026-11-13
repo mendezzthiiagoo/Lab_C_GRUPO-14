@@ -22,19 +22,11 @@ void jugar_mision(NodoMision **historial)
     angulo = leer_real("Comandante, ingrese el angulo de reingreso [grados]", 0.0, 90.0);
     
     nuevo_nodo->info.angulo_ingreso = angulo;
-    evaluacion = evaluar_angulo(angulo);
+      evaluacion = ejecutarMision(angulo, 8.0, 0.0);
 
     if (evaluacion == 1) {
-        printf("\n[EXITO] Angulo nominal. La capsula penetra la atmosfera de forma segura.\n");
-        printf("Paracaidas desplegados. Amerizaje confirmado.\n");
         nuevo_nodo->info.estado_partida = 1;
-    } else if (evaluacion == 0) {
-        printf("\n[FRACASO] Angulo muy rasante. La capsula reboto en la alta atmosfera.\n");
-        printf("Se perdio el contacto. La mision ha fallado.\n");
-        nuevo_nodo->info.estado_partida = 2;
     } else {
-        printf("\n[FRACASO] Angulo muy empinado. Desaceleracion brutal y escudos superados.\n");
-        printf("La capsula se desintegro por el calor.\n");
         nuevo_nodo->info.estado_partida = 2;
     }
 

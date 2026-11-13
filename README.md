@@ -90,5 +90,6 @@ pedir, por lo que el programa no se cierra ni entra en un bucle infinito.
 | Herramienta | Para que se uso | Consultas principales | Como se valido |
 |---|---|---|---|
 | Claude (Anthropic) | Planificacion del proyecto, reparto de tareas, borrador de `main.c` y `calculadora.c`, explicacion de Git/GitHub | Arquitectura modular segun el material de la catedra; menu con do-while y switch; calculadora de los puntos a-d; como subir commits a una rama y abrir un Pull Request | Se compilo con `gcc -Wall -Wextra`, se probo con entradas validas e invalidas y se comparo con calculos hechos a mano |
+| ChatGPT (OpenAI), utilizado por Juan Sebastián Noguera Vega | Revisión e integración de la lógica de misión, corrección de cabeceras y funciones duplicadas, creación de validaciones y ayuda con GitHub | Cómo conectar ejecutarMision con jugar_mision; corregir errores de compilación; validar entradas; actualizar ramas e integrar cambios | Se compiló el ZIP con gcc -Wall y se ejecutaron pruebas de física y misiones con ángulos de 4°, 6° y 8°, comprobando los resultados y el historial |
 
 > Completar: cada integrante agrega aqui sus propias consultas a IA y como valido el resultado.

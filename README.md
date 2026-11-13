@@ -29,7 +29,7 @@ El programa se ejecuta por consola y ofrece un menu principal:
 2. **Calculadora de analisis:** responde los puntos a, b, c y d de la consigna con los
    datos de la consigna o con datos ingresados por el usuario.
 3. **Reglas del juego.**
-4. **Ver reporte de la ultima mision.**
+4. **Ver historial de todas las misiones de la sesión.**
 0. **Salir.**
 
 ### Calculos fisicos
@@ -56,7 +56,7 @@ Valor de gravedad utilizado: **g = 9,81 m/s2** (la consigna no lo define para es
 ```
 include/   cabeceras (.h): artemis.h, fisica.h, interfaz.h, validaciones.h, calculadora.h
 src/       codigo fuente (.c): main.c, artemis.c, fisica.c, interfaz.c, validaciones.c, calculadora.c
-tests/     pruebas: test_fisica.c, test_validaciones.c
+tests/     pruebas: test_fisica.c
 Makefile   compilacion
 ```
 

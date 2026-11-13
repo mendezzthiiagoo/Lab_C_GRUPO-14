@@ -5,13 +5,15 @@ UTN Facultad Regional Resistencia - Ingenieria en Sistemas de Informacion
 
 ## Integrantes
 
-| Integrante | Modulo a cargo |
+Comisión: K1.1
+
+| Integrante | Módulo a cargo |
 |---|---|
-| Angel | Preparacion del repo, Makefile, `validaciones.c/.h` |
-| Fretis | `artemis.h`, `interfaz.c/.h`, reglas y reporte final |
-| Tiago | `fisica.c/.h` y pruebas (`tests/test_fisica.c`) |
-| Juanse | `artemis.c`: fases del juego |
-| Elias | `main.c` (menu), `calculadora.c/.h`, README |
+| Pelozo, Ángel Esteban | Preparación del repositorio, Makefile y validaciones |
+| Frettis, Andrés | Cabeceras, interfaz, reglas y reporte |
+| Méndez, Thiago | Funciones físicas y pruebas |
+| Noguera Vega, Juan Sebastián | Lógica de las etapas de la misión |
+| Alegre Prieto, Elías | Menú principal, calculadora y README |
 
 ## Escenario asignado
 

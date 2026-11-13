@@ -37,4 +37,39 @@ void verificarAmerizaje(double velocidad, double altura) {
     else {
         printf("Amerizaje no confirmado.\n");
     }
+}}
+
+int ejecutarMision(double angulo, double velocidad, double altura) {
+    printf("\n=== CONTROL DE MISION ARTEMIS ===\n");
+
+    // Etapa 1: verificar el reingreso
+    printf("\nETAPA 1: REINGRESO\n");
+
+    if (verificarReingreso(angulo) == 0) {
+        printf("MISION FALLIDA: Reingreso inseguro.\n");
+        return 0;
+    }
+
+    // Etapa 2: controlar el descenso
+    printf("\nETAPA 2: DESCENSO\n");
+
+    controlarDescenso(velocidad);
+
+    if (velocidad < 0 || velocidad > 10.0) {
+        printf("MISION FALLIDA: Velocidad insegura.\n");
+        return 0;
+    }
+
+    // Etapa 3: verificar el amerizaje
+    printf("\nETAPA 3: AMERIZAJE\n");
+
+    if (altura <= 0) {
+        verificarAmerizaje(velocidad, altura);
+        printf("MISION COMPLETADA CON EXITO.\n");
+        return 1;
+    }
+
+    printf("La nave todavia esta descendiendo.\n");
+    return 0;
 }
+

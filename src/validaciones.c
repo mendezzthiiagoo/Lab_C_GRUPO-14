@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 #include "validaciones.h"
 
 #define TAM_LINEA 128
@@ -63,7 +64,7 @@ double leer_real(const char *mensaje, double min, double max)
             printf("  Error: ingrese un numero valido.\n");
             continue;
         }
-        if (valor < min || valor > max) {
+        if (!isfinite(valor) || valor < min || valor > max) {
             printf("  Error: el valor debe estar entre %g y %g.\n", min, max);
             continue;
         }

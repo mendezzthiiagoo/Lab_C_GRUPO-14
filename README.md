@@ -5,13 +5,15 @@ UTN Facultad Regional Resistencia - Ingenieria en Sistemas de Informacion
 
 ## Integrantes
 
-| Integrante | Modulo a cargo |
+Comisión: K1.1
+
+| Integrante | Módulo a cargo |
 |---|---|
-| Angel | Preparacion del repo, Makefile, `validaciones.c/.h` |
-| Fretis | `artemis.h`, `interfaz.c/.h`, reglas y reporte final |
-| Tiago | `fisica.c/.h` y pruebas (`tests/test_fisica.c`) |
-| Juanse | `artemis.c`: fases del juego |
-| Elias | `main.c` (menu), `calculadora.c/.h`, README |
+| Pelozo, Ángel Esteban | Preparación del repositorio, Makefile y validaciones |
+| Frettis, Andrés | Cabeceras, interfaz, reglas y reporte |
+| Méndez, Thiago | Funciones físicas y pruebas |
+| Noguera Vega, Juan Sebastián | Lógica de las etapas de la misión |
+| Alegre Prieto, Elías | Menú principal, calculadora y README |
 
 ## Escenario asignado
 
@@ -27,7 +29,7 @@ El programa se ejecuta por consola y ofrece un menu principal:
 2. **Calculadora de analisis:** responde los puntos a, b, c y d de la consigna con los
    datos de la consigna o con datos ingresados por el usuario.
 3. **Reglas del juego.**
-4. **Ver reporte de la ultima mision.**
+4. **Ver historial de todas las misiones de la sesión.**
 0. **Salir.**
 
 ### Calculos fisicos
@@ -54,7 +56,7 @@ Valor de gravedad utilizado: **g = 9,81 m/s2** (la consigna no lo define para es
 ```
 include/   cabeceras (.h): artemis.h, fisica.h, interfaz.h, validaciones.h, calculadora.h
 src/       codigo fuente (.c): main.c, artemis.c, fisica.c, interfaz.c, validaciones.c, calculadora.c
-tests/     pruebas: test_fisica.c, test_validaciones.c
+tests/     pruebas: test_fisica.c
 Makefile   compilacion
 ```
 
@@ -88,5 +90,6 @@ pedir, por lo que el programa no se cierra ni entra en un bucle infinito.
 | Herramienta | Para que se uso | Consultas principales | Como se valido |
 |---|---|---|---|
 | Claude (Anthropic) | Planificacion del proyecto, reparto de tareas, borrador de `main.c` y `calculadora.c`, explicacion de Git/GitHub | Arquitectura modular segun el material de la catedra; menu con do-while y switch; calculadora de los puntos a-d; como subir commits a una rama y abrir un Pull Request | Se compilo con `gcc -Wall -Wextra`, se probo con entradas validas e invalidas y se comparo con calculos hechos a mano |
+| ChatGPT (OpenAI), utilizado por Juan Sebastián Noguera Vega | Revisión e integración de la lógica de misión, corrección de cabeceras y funciones duplicadas, creación de validaciones y ayuda con GitHub | Cómo conectar ejecutarMision con jugar_mision; corregir errores de compilación; validar entradas; actualizar ramas e integrar cambios | Se compiló el ZIP con gcc -Wall y se ejecutaron pruebas de física y misiones con ángulos de 4°, 6° y 8°, comprobando los resultados y el historial |
 
 > Completar: cada integrante agrega aqui sus propias consultas a IA y como valido el resultado.

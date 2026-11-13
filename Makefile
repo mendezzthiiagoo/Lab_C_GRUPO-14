@@ -1,27 +1,48 @@
 # Makefile - Simulador Artemis (Grupo 14)
-# Uso:  make          -> compila el programa (./artemis)
-#       make test     -> compila las pruebas de fisica (./test_fisica)
-#       make clean    -> borra objetos y ejecutables
+# Uso:  make                   -> programa principal por consola (./artemis)
+#       make grafica           -> ventana de telemetria con raylib (opcional)
+#       make test              -> pruebas de fisica
+#       make test_validaciones -> pruebas de entradas
+#       make clean             -> borra objetos y ejecutables
 
 CC     = gcc
 CFLAGS = -Wall -Iinclude
 LIBS   = -lm
 
-FUENTES = $(wildcard src/*.c)
+# interfaz_grafica.c tiene su propio main y necesita raylib: no va en el programa principal
+FUENTES = $(filter-out src/interfaz_grafica.c,$(wildcard src/*.c))
 OBJETOS = $(FUENTES:.c=.o)
 
-artemis: $(OBJETOS)
-	$(CC) $(OBJETOS) -o artemis $(LIBS)
+# En Windows se agrega el icono del ejecutable
+ifeq ($(OS),Windows_NT)
+EXTRA = icono.o
+RAYLIB = -lraylib -lopengl32 -lgdi32 -lwinmm
+icono.o: icono.rc icono.ico
+	windres icono.rc -o icono.o
+else
+EXTRA =
+RAYLIB = -lraylib -lGL -lpthread -ldl
+endif
+
+artemis: $(OBJETOS) $(EXTRA)
+	$(CC) $(OBJETOS) $(EXTRA) -o artemis $(LIBS)
 
 # Regla para compilar cada .c en un .o (compilacion separada)
 src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Pruebas unitarias de fisica (tienen su propio main)
+# Ventana grafica (requiere raylib instalada)
+grafica: src/interfaz_grafica.c src/fisica.c
+	$(CC) $(CFLAGS) src/interfaz_grafica.c src/fisica.c -o interfaz_grafica $(RAYLIB) $(LIBS)
+
+# Pruebas (cada una tiene su propio main)
 test: tests/test_fisica.c src/fisica.c
 	$(CC) $(CFLAGS) tests/test_fisica.c src/fisica.c -o test_fisica $(LIBS)
 
-clean:
-	rm -f src/*.o artemis artemis.exe test_fisica test_fisica.exe
+test_validaciones: tests/test_validaciones.c src/validaciones.c
+	$(CC) $(CFLAGS) tests/test_validaciones.c src/validaciones.c -o test_validaciones $(LIBS)
 
-.PHONY: test clean
+clean:
+	rm -f src/*.o *.o artemis artemis.exe interfaz_grafica interfaz_grafica.exe test_fisica test_fisica.exe test_validaciones test_validaciones.exe datos_mision.txt
+
+.PHONY: grafica test test_validaciones clean

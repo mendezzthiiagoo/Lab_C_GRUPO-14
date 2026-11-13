@@ -27,4 +27,5 @@ void mostrar_reglas(void);
 void jugar_mision(NodoMision **historial);
 void mostrar_reporte(NodoMision *historial);
 void liberar_historial(NodoMision **historial);
+int ejecutarMision(double angulo, double velocidad, double altura);
 #endif 

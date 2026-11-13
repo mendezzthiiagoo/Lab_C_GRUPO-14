@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../Include/interfaz.h"
+#include "../include/interfaz.h"
 #include "../include/fisica.h"
 
 /* Funcion auxiliar privada recursiva (no se declara en el .h).

@@ -21,7 +21,7 @@ int verificarReingreso(double angulo) {
     }
 }
 void controlarDescenso(double velocidad) {
-    if (velocidad > 0 && velocidad <= 10.0) {
+    if (velocidad >= 0 && velocidad <= 10.0) {
         printf("Descenso controlado.\n");
     }
     else {

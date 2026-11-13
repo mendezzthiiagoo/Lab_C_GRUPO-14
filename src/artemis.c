@@ -37,7 +37,7 @@ void verificarAmerizaje(double velocidad, double altura) {
     else {
         printf("Amerizaje no confirmado.\n");
     }
-}}
+}
 
 int ejecutarMision(double angulo, double velocidad, double altura) {
     printf("\n=== CONTROL DE MISION ARTEMIS ===\n");

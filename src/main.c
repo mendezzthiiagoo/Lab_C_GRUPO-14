@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h> /* system() */
 #include "../include/artemis.h"
 #include "../include/calculadora.h"
 #include "../include/validaciones.h"
@@ -8,6 +9,7 @@ int main(void)
     /* Inicializamos la cabeza de la lista enlazada en NULL */
     NodoMision *historial = NULL; 
     int opcion;
+    int ventana_abierta = 0;   /* 1 = ya se lanzo la ventana grafica */
 
     do {
         printf("\n+==================================================+\n");
@@ -22,6 +24,17 @@ int main(void)
 
         switch (opcion) {
         case 1:
+            /* La ventana grafica es opcional: se abre una sola vez, y solo si
+               existe interfaz_grafica.exe (en Windows). Sin ella el juego sigue igual. */
+            if (!ventana_abierta) {
+                FILE *prueba = fopen("interfaz_grafica.exe", "rb");
+                if (prueba != NULL) {
+                    fclose(prueba);
+                    system("start interfaz_grafica.exe");
+                    ventana_abierta = 1;
+                }
+            }
+
             /* Pasamos la direccion de memoria del puntero para modificar la lista */
             jugar_mision(&historial); 
             break;
@@ -43,7 +56,7 @@ int main(void)
         }
     } while (opcion != 0);
 
-    /* MUY IMPORTANTE EN AED: Liberar la memoria dinámica antes del return */
+    /* MUY IMPORTANTE EN AED: Liberar la memoria dinÃ¡mica antes del return */
     liberar_historial(&historial);
 
     return 0;

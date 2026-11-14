@@ -14,9 +14,13 @@ FUENTES = $(filter-out src/interfaz_grafica.c,$(wildcard src/*.c))
 OBJETOS = $(FUENTES:.c=.o)
 
 # En Windows se agrega el icono del ejecutable
+# Carpeta donde el instalador de raylib deja raylib.h y libraylib.a.
+# Si la tuya es otra:  make grafica RAYLIB_PATH=C:/otra/ruta
+RAYLIB_PATH ?= C:/raylib/raylib/src
+
 ifeq ($(OS),Windows_NT)
 EXTRA = icono.o
-RAYLIB = -lraylib -lopengl32 -lgdi32 -lwinmm
+RAYLIB = -I$(RAYLIB_PATH) -L$(RAYLIB_PATH) -lraylib -lopengl32 -lgdi32 -lwinmm
 icono.o: icono.rc icono.ico
 	windres icono.rc -o icono.o
 else
